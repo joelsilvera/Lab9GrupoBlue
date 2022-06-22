@@ -12,98 +12,12 @@
             </jsp:include>
             <div class="pb-5 pt-4 px-3 titlecolor d-flex justify-content-between align-items-center">
                 <div class="col-lg-6">
-                    <h1 class='text-light'>Bienvenido al Apocalipsis Zombie</h1>
-                    <h1 class='text-light'>Obtenga información útil en la parte superior</h1>
+                    <h1 class='text-light' align="right">APOCALIPSIS</h1>
+                    <h1 class='text-light' align="right">ZOMBIE</h1>
                 </div>
             </div>
             <div class="tabla">
-                <table class="table table-dark table-transparent table-hover">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>NOMBRE</th>
-                            <th>ROL</th>
-                            <th>CORREO</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td>1
-                            </td>
-                            <td>Stuardo Lucho
-                            </td>
-                            <td>Profesor
-                            </td>
-                            <td>stuardo.lucho@pucp.edu.pe
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>2
-                            </td>
-                            <td>Oscar Diaz
-                            </td>
-                            <td>JP
-                            </td>
-                            <td>diaz.oa@pucp.edu.pe
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>3
-                            </td>
-                            <td>Mario Gustavo
-                            </td>
-                            <td>JP
-                            </td>
-                            <td>a2015@pucp.edu.pe
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>4
-                            </td>
-                            <td>Rodrigo Adauto
-                            </td>
-                            <td>JP
-                            </td>
-                            <td>a20160679@pucp.edu.pe
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4
-                            </td>
-                            <td>Álvaro Burga
-                            </td>
-                            <td>JP
-                            </td>
-                            <td>a20160679@pucp.edu.pe
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4
-                            </td>
-                            <td>Josué López
-                            </td>
-                            <td>JP
-                            </td>
-                            <td>a20160679@pucp.edu.pe
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4
-                            </td>
-                            <td> Alejandro Macedo
-                            </td>
-                            <td>JP
-                            </td>
-                            <td>a20160679@pucp.edu.pe
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
+                <video src="Zombie_Y.mp4" muted autoplay loop></video>
             </div>
         </div>
         <jsp:include page="/static/scripts.jsp"/>
