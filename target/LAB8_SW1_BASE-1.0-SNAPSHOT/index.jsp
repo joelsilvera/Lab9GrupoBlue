@@ -2,7 +2,7 @@
 <html>
     <!--Colocar como value: nombre de la presente página -->
     <jsp:include page="/static/head.jsp">
-        <jsp:param name="title" value="Bienvenido"/>
+        <jsp:param name="title" value="Apocalipsis Zombie"/>
     </jsp:include>
     <body>
         <div class='container'>
@@ -12,7 +12,8 @@
             </jsp:include>
             <div class="pb-5 pt-4 px-3 titlecolor d-flex justify-content-between align-items-center">
                 <div class="col-lg-6">
-                    <h1 class='text-light'>Bienvenido, este es un ejemplo de tabla:</h1>
+                    <h1 class='text-light'>Bienvenido al Apocalipsis Zombie</h1>
+                    <h1 class='text-light'>Obtenga información útil en la parte superior</h1>
                 </div>
             </div>
             <div class="tabla">
