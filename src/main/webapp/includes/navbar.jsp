@@ -22,7 +22,7 @@
                 <a class="nav-link <%=request.getParameter("page").equals("Zombies")? "active": "" %>" href="<%=request.getContextPath()%>/listaZombies">Zombies</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <%=request.getParameter("page").equals("Virus")? "active": "" %>" href="<%=request.getContextPath()%>/listaVirus">Virus</a>
+                <a class="nav-link <%=request.getParameter("page").equals("Virus")? "active": "" %>" href="<%=request.getContextPath()%>/listaServlet?a=listarVariante">Virus</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link <%=request.getParameter("page").equals("artistas")? "active": "" %>" href="<%=request.getContextPath()%>/listaArtistas">Artistas</a>

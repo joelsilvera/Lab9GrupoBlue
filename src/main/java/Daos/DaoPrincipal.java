@@ -2,6 +2,7 @@ package Daos;
 
 import Beans.BeanHumano;
 import Beans.BeanSuperviviente;
+import Beans.BeanVariante;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -93,5 +94,46 @@ public class DaoPrincipal {
             throw new RuntimeException(e);
         }
         return listaSuperviviente;
+    }
+
+
+
+    public ArrayList<BeanVariante> listarVariante() {
+        ArrayList<BeanVariante> listaVariante = new ArrayList<>();
+
+        String user = "root";
+        String pass = "root";
+        String url = "jdbc:mysql://localhost:3306/blue1?serverTimezone=America/Lima";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String sql = "SELECT h.idvirus, h.nombre, s.idvariantes, s.nombre, tabla1.Casos  FROM virus h \n" +
+                "                inner join variantesvirus s on (h.idvirus = s.virus_idvirus)\n" +
+                "                left join zombies z on (z.variantes_idvariantes = s.idvariantes)\n" +
+                "                left join (SELECT variantes_idvariantes, COUNT(variantes_idvariantes) as 'Casos' from zombies\n" +
+                "\t\t\t\t\t\t\tgroup by variantes_idvariantes)\n" +
+                "                tabla1 on (tabla1.variantes_idvariantes = s.idvariantes);";
+
+        try (Connection connection = DriverManager.getConnection(url, user, pass);
+             Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(sql);) {
+
+            while (rs.next()) {
+                BeanVariante variante = new BeanVariante();
+                variante.setIdVirus(Integer.parseInt(rs.getString(1)));
+                variante.setNombreVirus(rs.getString(2));
+                variante.setIdVariante(Integer.parseInt(rs.getString(3)));
+                variante.setNombreVariante(rs.getString(4));
+                variante.setCasos(Integer.parseInt(rs.getString(5)));
+                listaVariante.add(variante);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listaVariante;
     }
 }

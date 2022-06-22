@@ -2,6 +2,7 @@ package Servlets;
 
 import Beans.BeanHumano;
 import Beans.BeanSuperviviente;
+import Beans.BeanVariante;
 import Daos.DaoPrincipal;
 
 import javax.servlet.*;
@@ -27,6 +28,12 @@ public class listaServlet extends HttpServlet {
                 ArrayList<BeanSuperviviente> listaSupervivientes = daoPrincipal.listarSuperviviente();
                 request.setAttribute("lista",listaSupervivientes);
                 RequestDispatcher view = request.getRequestDispatcher("/includes/menuSuperviviente.jsp");
+                view.forward(request, response);
+            }
+            case "listarVariante" -> {
+                ArrayList<BeanVariante> listaVariante = daoPrincipal.listarVariante();
+                request.setAttribute("lista",listaVariante);
+                RequestDispatcher view = request.getRequestDispatcher("/includes/menuVariante.jsp");
                 view.forward(request, response);
             }
         }
