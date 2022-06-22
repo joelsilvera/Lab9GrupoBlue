@@ -1,6 +1,7 @@
 package Servlets;
 
 import Beans.BeanHumano;
+import Beans.BeanSuperviviente;
 import Daos.DaoPrincipal;
 
 import javax.servlet.*;
@@ -9,17 +10,23 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(name = "listaServlet", value = "/listaHumanos")
+@WebServlet(name = "listaServlet", value = "/listaServlet")
 public class listaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("a") == null ? "listarHumanos" : request.getParameter("a");
+        String action = request.getParameter("a") == null ? "listar" : request.getParameter("a");
         DaoPrincipal daoPrincipal = new DaoPrincipal();
         switch (action){
             case "listarHumanos" -> {
                 ArrayList<BeanHumano> listaHumanos = daoPrincipal.listarHumano();
                 request.setAttribute("lista",listaHumanos);
                 RequestDispatcher view = request.getRequestDispatcher("/includes/menuHumano.jsp");
+                view.forward(request, response);
+            }
+            case "listarSupervivientes" -> {
+                ArrayList<BeanSuperviviente> listaSupervivientes = daoPrincipal.listarSuperviviente();
+                request.setAttribute("lista",listaSupervivientes);
+                RequestDispatcher view = request.getRequestDispatcher("/includes/menuSuperviviente.jsp");
                 view.forward(request, response);
             }
         }
