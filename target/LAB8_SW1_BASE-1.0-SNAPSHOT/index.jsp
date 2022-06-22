@@ -4,106 +4,45 @@
     <jsp:include page="/static/head.jsp">
         <jsp:param name="title" value="Apocalipsis Zombie"/>
     </jsp:include>
+
+    <head>
+        <STYLE TYPE="text/css">
+            .apocalipsis{
+                position: absolute;
+                top: 69%;
+                left: 50%;
+                transform: translate(-10%, -94%);
+
+                font-family: fantasy;
+                font-size: 650%;
+                font-weight: 900;
+            }
+            .videojueg{
+                position: absolute;
+                top: 20%;
+                left: 70%;
+                transform: translate(-40%,-10%);
+                color: #FF3333;
+                font-family: fantasy;
+                font-size: 300%;
+                font-weight: 900;
+            }
+        </STYLE>
+    </head>
+
     <body>
         <div class='container'>
             <!--Colocar como value: artistas, canciones, bandas, tours o tpc  (dependiendo de la pagina a la que corresponda) -->
             <jsp:include page="/includes/navbar.jsp">
                 <jsp:param name="page" value=""/>
             </jsp:include>
-            <div class="pb-5 pt-4 px-3 titlecolor d-flex justify-content-between align-items-center">
-                <div class="col-lg-6">
-                    <h1 class='text-light'>Bienvenido al Apocalipsis Zombie</h1>
-                    <h1 class='text-light'>Obtenga información útil en la parte superior</h1>
-                </div>
-            </div>
+
             <div class="tabla">
-                <table class="table table-dark table-transparent table-hover">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>NOMBRE</th>
-                            <th>ROL</th>
-                            <th>CORREO</th>
-                        </tr>
-                    </thead>
+                <video width="1080" height="685"
+                       src="Zombie_Y.mp4" muted autoplay loop></video>
+                <div class="apocalipsis">APOCALIPSIS<br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp ZOMBIE</div>
+                <div class="videojueg">EL VIDEOJUEGO</div>
 
-                    <tbody>
-                        <tr>
-                            <td>1
-                            </td>
-                            <td>Stuardo Lucho
-                            </td>
-                            <td>Profesor
-                            </td>
-                            <td>stuardo.lucho@pucp.edu.pe
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>2
-                            </td>
-                            <td>Oscar Diaz
-                            </td>
-                            <td>JP
-                            </td>
-                            <td>diaz.oa@pucp.edu.pe
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>3
-                            </td>
-                            <td>Mario Gustavo
-                            </td>
-                            <td>JP
-                            </td>
-                            <td>a2015@pucp.edu.pe
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>4
-                            </td>
-                            <td>Rodrigo Adauto
-                            </td>
-                            <td>JP
-                            </td>
-                            <td>a20160679@pucp.edu.pe
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4
-                            </td>
-                            <td>Álvaro Burga
-                            </td>
-                            <td>JP
-                            </td>
-                            <td>a20160679@pucp.edu.pe
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4
-                            </td>
-                            <td>Josué López
-                            </td>
-                            <td>JP
-                            </td>
-                            <td>a20160679@pucp.edu.pe
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4
-                            </td>
-                            <td> Alejandro Macedo
-                            </td>
-                            <td>JP
-                            </td>
-                            <td>a20160679@pucp.edu.pe
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
             </div>
         </div>
         <jsp:include page="/static/scripts.jsp"/>

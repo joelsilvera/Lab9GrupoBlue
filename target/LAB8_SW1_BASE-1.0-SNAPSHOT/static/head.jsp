@@ -8,7 +8,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'/>
-    <link rel="shortcut icon" href="<%=request.getContextPath()%>/static/favicon2.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/static/zombie-16.ico" type="image/x-icon">
     <title><%=request.getParameter("title")%>
     </title>
     <style>
@@ -28,7 +28,7 @@
         .navbar {
             padding-left: 20px !important;
             padding-right: 20px !important;
-            background-color: rgba(75, 25, 119, 0.94) !important;
+            background-color: rgb(255 227 51 / 94%) !important;
         }
 
         .table-transparent {

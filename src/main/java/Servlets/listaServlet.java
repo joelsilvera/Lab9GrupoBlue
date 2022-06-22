@@ -15,9 +15,14 @@ import java.util.ArrayList;
 public class listaServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("a") == null ? "listar" : request.getParameter("a");
+        String action = request.getParameter("a") == null ? "inicio" : request.getParameter("a");
         DaoPrincipal daoPrincipal = new DaoPrincipal();
         switch (action){
+            case "inicio" -> {
+                RequestDispatcher view = request.getRequestDispatcher("/index.jsp");
+                view.forward(request, response);
+            }
+
             case "listarHumanos" -> {
                 ArrayList<BeanHumano> listaHumanos = daoPrincipal.listarHumano();
                 request.setAttribute("lista",listaHumanos);
