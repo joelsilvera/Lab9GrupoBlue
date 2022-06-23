@@ -23,7 +23,6 @@ public class listaServlet extends HttpServlet {
                 RequestDispatcher view = request.getRequestDispatcher("/index.jsp");
                 view.forward(request, response);
             }
-
             case "listarHumanos" -> {
                 ArrayList<BeanHumano> listaHumanos = daoPrincipal.listarHumano();
                 request.setAttribute("lista",listaHumanos);
@@ -35,6 +34,17 @@ public class listaServlet extends HttpServlet {
                 request.setAttribute("lista",listaSupervivientes);
                 RequestDispatcher view = request.getRequestDispatcher("/includes/menuSuperviviente.jsp");
                 view.forward(request, response);
+            }
+            case "agregarSuperviviente" -> {
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/includes/agregarSuperviviente.jsp");
+                requestDispatcher.forward(request, response);
+            }
+            case "borrarSup" -> {
+                String id1 = request.getParameter("id1");
+                String id2 = request.getParameter("id2");
+                daoPrincipal.borrar(id1, Integer.parseInt(id2));
+
+                response.sendRedirect(request.getContextPath() + "/listaServlet?a=listarSupervivientes");
             }
             case "listarVariante" -> {
                 ArrayList<BeanVariante> listaVariante = daoPrincipal.listarVariante();
@@ -61,6 +71,15 @@ public class listaServlet extends HttpServlet {
         String action = request.getParameter("a") == null ? "inicio" : request.getParameter("a");
         DaoPrincipal daoPrincipal = new DaoPrincipal();
         switch (action) {
+
+            case "buscar" -> {
+                String textoBuscar = request.getParameter("textoBuscar");
+                request.setAttribute("lista", daoPrincipal.buscarPorSexo(textoBuscar));
+
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("includes/menuSuperviviente.jsp");
+                requestDispatcher.forward(request, response);
+            }
+
             case "nuevavariante" -> {
                 BeanVariante bPerfil = new BeanVariante();
 

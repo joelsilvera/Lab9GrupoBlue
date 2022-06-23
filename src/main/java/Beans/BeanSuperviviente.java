@@ -1,6 +1,7 @@
 package Beans;
 
 public class BeanSuperviviente {
+    private int idInt;
     private String idSuperviviente;
     private String nombre;
     private String apellido;
@@ -82,5 +83,13 @@ public class BeanSuperviviente {
 
     public void setPesoCargado(double pesoCargado) {
         this.pesoCargado = pesoCargado;
+    }
+
+    public int getIdInt() {
+        return idInt;
+    }
+
+    public void setIdInt(int idInt) {
+        this.idInt = idInt;
     }
 }
