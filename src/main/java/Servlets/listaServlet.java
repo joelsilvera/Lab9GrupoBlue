@@ -63,6 +63,14 @@ public class listaServlet extends HttpServlet {
                 RequestDispatcher view = request.getRequestDispatcher("/includes/menuZombie.jsp");
                 view.forward(request, response);
             }
+            case "caceria" -> {
+                ArrayList<BeanSuperviviente> listaSupervivientes = daoPrincipal.listarSuperviviente();
+                request.setAttribute("listaSupervivientes",listaSupervivientes);
+                ArrayList<BeanZombie> listaZombie = daoPrincipal.listarZombie();
+                request.setAttribute("listaZombies",listaZombie);
+                RequestDispatcher view = request.getRequestDispatcher("/includes/caceria.jsp");
+                view.forward(request, response);
+            }
         }
     }
 
