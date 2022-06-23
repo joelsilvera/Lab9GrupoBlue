@@ -95,6 +95,7 @@
 
             </tr>
             <%}%>
+            <br>
             </tbody>
         </table>
     </div>

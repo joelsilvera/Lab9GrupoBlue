@@ -3,6 +3,7 @@ package Servlets;
 import Beans.BeanHumano;
 import Beans.BeanSuperviviente;
 import Beans.BeanVariante;
+import Beans.BeanZombie;
 import Daos.DaoPrincipal;
 
 import javax.servlet.*;
@@ -45,6 +46,12 @@ public class listaServlet extends HttpServlet {
                 String id = request.getParameter("id");
                 daoPrincipal.borrarVariante(id);
                 response.sendRedirect(request.getContextPath() + "/listaServlet?a=listarVariante");
+            }
+            case "listarZombie" -> {
+                ArrayList<BeanZombie> listaZombie = daoPrincipal.listarZombie();
+                request.setAttribute("lista",listaZombie);
+                RequestDispatcher view = request.getRequestDispatcher("/includes/menuZombie.jsp");
+                view.forward(request, response);
             }
         }
     }

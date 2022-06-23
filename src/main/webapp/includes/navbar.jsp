@@ -19,7 +19,7 @@
                 <a style="font-weight: 1000;" class="nav-link <%=request.getParameter("page").equals("Supervivientes")? "active": "" %>" href="<%=request.getContextPath()%>/listaServlet?a=listarSupervivientes">Supervivientes</a>
             </li>
             <li class="nav-item">
-                <a style="font-weight: 1000;" class="nav-link <%=request.getParameter("page").equals("Zombies")? "active": "" %>" href="<%=request.getContextPath()%>/listaZombies">Zombies</a>
+                <a style="font-weight: 1000;" class="nav-link <%=request.getParameter("page").equals("Zombies")? "active": "" %>" href="<%=request.getContextPath()%>/listaServlet?a=listarZombie">Zombies</a>
             </li>
             <li class="nav-item">
                 <a style="font-weight: 1000;" class="nav-link <%=request.getParameter("page").equals("Virus")? "active": "" %>" href="<%=request.getContextPath()%>/listaServlet?a=listarVariante">Virus</a>

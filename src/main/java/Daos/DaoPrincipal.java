@@ -3,6 +3,7 @@ package Daos;
 import Beans.BeanHumano;
 import Beans.BeanSuperviviente;
 import Beans.BeanVariante;
+import Beans.BeanZombie;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -164,4 +165,47 @@ public class DaoPrincipal {
 
     }
 
+
+    public ArrayList<BeanZombie> listarZombie() {
+        ArrayList<BeanZombie> listaZombie = new ArrayList<>();
+
+        String user = "root";
+        String pass = "root";
+        String url = "jdbc:mysql://localhost:3306/blue1?serverTimezone=America/Lima";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String sql = "SELECT idhumanos , h.nombre , apellido, sexo, tabla1.DiferenciaHoras, v.nombre, s.numeroDeVictimas, t.nombre\n" +
+                "                FROM humanos h \n" +
+                "                inner join zombies s on (h.idHumanos = s.Humanos_idHumanos)\n" +
+                "                left join (SELECT idzombies, (DATEDIFF(CURRENT_DATE(),fechaInfeccion))*24 AS 'DiferenciaHoras' FROM zombies)\n" +
+                "                tabla1 on (tabla1.idzombies = s.idzombies)\n" +
+                "                inner join variantesvirus v on (s.variantes_idvariantes = v.idvariantes)\n" +
+                "                inner join tiposzombie t on (t.idtipo = s.tipo_idtipo);";
+
+        try (Connection connection = DriverManager.getConnection(url, user, pass);
+             Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(sql);) {
+
+            while (rs.next()) {
+                BeanZombie zombie = new BeanZombie();
+                zombie.setIdZombie(rs.getString(1));
+                zombie.setNombre(rs.getString(2));
+                zombie.setApellido(rs.getString(3));
+                zombie.setSexo(rs.getString(4));
+                zombie.setTiempoInfectado(rs.getInt(5));
+                zombie.setVarianteVirus(rs.getString(6));
+                zombie.setVictimas(rs.getInt(7));
+                zombie.setTipo(rs.getString(8));
+                listaZombie.add(zombie);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listaZombie;
+    }
 }
