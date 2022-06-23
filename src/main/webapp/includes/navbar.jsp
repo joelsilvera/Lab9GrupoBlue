@@ -1,8 +1,5 @@
 <%--
 
-  NO TOCAR!
-
-
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
@@ -25,10 +22,12 @@
                 <a style="font-weight: 1000;" class="nav-link <%=request.getParameter("page").equals("Virus")? "active": "" %>" href="<%=request.getContextPath()%>/listaServlet?a=listarVariante">Virus</a>
             </li>
             <li class="nav-item">
-                <a style="font-weight: 1000;" class="nav-link <%=request.getParameter("page").equals("artistas")? "active": "" %>" href="<%=request.getContextPath()%>/listaArtistas">Artistas</a>
+                <a style="font-weight: 1000;" class="nav-link <%=request.getParameter("page").equals("Objetos")? "active": "" %>" href="<%=request.getContextPath()%>/ObjetosServlet">Objetos</a>
+            </li>
+            <li class="nav-item">
+                <a style="font-weight: 1000;" class="nav-link <%=request.getParameter("page").equals("Caceria")? "active": "" %>" href="<%=request.getContextPath()%>/listaServlet?a=caceria">Caceria</a>
             </li>
 
         </ul>
     </div>
 </nav>
-

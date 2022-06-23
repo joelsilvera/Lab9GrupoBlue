@@ -84,6 +84,18 @@ public class listaServlet extends HttpServlet {
                 BeanVariante bPerfil = new BeanVariante();
 
             }
+
+            case "ataque" -> {
+                BeanSuperviviente superviviente = new BeanSuperviviente();
+                superviviente.setIdSuperviviente(request.getParameter("Supervivientes"));
+                BeanZombie zombie = new BeanZombie();
+                zombie.setIdZombie(request.getParameter("Zombies"));
+
+                //hallar vacunas del superviviente
+
+
+
+            }
         }
     }
 
