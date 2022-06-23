@@ -59,7 +59,7 @@
                             <td><%=superviviente.getNombrePareja()%> <%=superviviente.getApellidoPareja()%></td>
                             <%}%>
                             <td><%=superviviente.getPesoCargado()%> Kg</td>
-                            <td><a class="btn btn-primary ms-auto">Inventario</a></td>
+                            <td><a class="btn btn-warning ms-auto">Inventario</a></td>
                             <td><a class="btn btn-warning ms-auto">Editar</a></td>
                             <td><a class="btn btn-danger ms-auto">Eliminar</a></td>
 

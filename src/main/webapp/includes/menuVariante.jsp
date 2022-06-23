@@ -29,7 +29,38 @@
 
     </div>
     <div class="tabla">
-        <a class="btn btn-warning ms-auto">Añadir variante</a>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Añadir variante
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="<%=request.getContextPath()%>/listaServlet?a=nuevavariante">
+                            <div class="input-group mb-3">
+                                <input type="hidden" name="codigopuke" value="xd" />
+                                <input type="text" class="form-control" name="numerotelefonico" id="numerotelefonico" value="">
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button class="btn btn-outline-secondary" type="submit" >Añadir</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <p> </p>
         <table class="table table-dark table-transparent table-hover">
             <thead>
@@ -59,11 +90,12 @@
                 <td><%=variante.getCasos()%></td>
                 <td></td>
 
-                <td><a class="btn btn-danger ms-auto">Borrar</a></td>
+                <td><a href="<%=request.getContextPath()%>/listaServlet?a=borrar&id=<%=variante.getIdVariante()%>" class="btn btn-danger">Borrar</a></td>
 
 
             </tr>
             <%}%>
+            <br>
             </tbody>
         </table>
     </div>

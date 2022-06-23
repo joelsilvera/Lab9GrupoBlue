@@ -116,7 +116,7 @@ public class DaoPrincipal {
                 "                left join zombies z on (z.variantes_idvariantes = s.idvariantes)\n" +
                 "                left join (SELECT variantes_idvariantes, COUNT(variantes_idvariantes) as 'Casos' from zombies\n" +
                 "\t\t\t\t\t\t\tgroup by variantes_idvariantes)\n" +
-                "                tabla1 on (tabla1.variantes_idvariantes = s.idvariantes);";
+                "                tabla1 on (tabla1.variantes_idvariantes = s.idvariantes) group by s.nombre;";
 
         try (Connection connection = DriverManager.getConnection(url, user, pass);
              Statement stmt = connection.createStatement();
@@ -136,4 +136,32 @@ public class DaoPrincipal {
         }
         return listaVariante;
     }
+
+    public void borrarVariante(String codigo) {
+
+        String user = "root";
+        String pass = "root";
+        String url = "jdbc:mysql://localhost:3306/blue1?serverTimezone=America/Lima";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String sql = "DELETE zombies , variantesvirus  FROM zombies  INNER JOIN variantesvirus\n" +
+                "WHERE variantesvirus.idvariantes= zombies.variantes_idvariantes and variantesvirus.idvariantes = ?;";
+
+        try (Connection connection = DriverManager.getConnection(url, user, pass);
+             PreparedStatement pstmt = connection.prepareStatement(sql);) {
+
+            pstmt.setInt(1, Integer.parseInt(codigo));
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 }

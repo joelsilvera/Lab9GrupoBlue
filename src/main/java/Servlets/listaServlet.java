@@ -41,11 +41,24 @@ public class listaServlet extends HttpServlet {
                 RequestDispatcher view = request.getRequestDispatcher("/includes/menuVariante.jsp");
                 view.forward(request, response);
             }
+            case "borrar" -> {
+                String id = request.getParameter("id");
+                daoPrincipal.borrarVariante(id);
+                response.sendRedirect(request.getContextPath() + "/listaServlet?a=listarVariante");
+            }
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("a") == null ? "inicio" : request.getParameter("a");
+        DaoPrincipal daoPrincipal = new DaoPrincipal();
+        switch (action) {
+            case "nuevavariante" -> {
+                BeanVariante bPerfil = new BeanVariante();
 
+            }
+        }
     }
+
 }
